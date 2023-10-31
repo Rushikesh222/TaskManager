@@ -6,11 +6,10 @@ import { NavLink } from "react-router-dom";
 export const CreateTask = () => {
   const [taskName, setTaskName] = useState("");
   const [taskDetails, setTaskDetails] = useState("");
-  const [taskStatus, setTaskStatus] = useState("");
+  const [taskStatus, setTaskStatus] = useState(true);
 
   const { currentUser, token } = useAuthContext();
   const { createTaskData } = useTaskData();
-  console.log(currentUser, token);
 
   const handleTaskName = (event) => {
     setTaskName(event.target.value);
@@ -18,14 +17,13 @@ export const CreateTask = () => {
   const handleTaskDetails = (event) => {
     setTaskDetails(event.target.value);
   };
-  const handleTaskStatus = (event) => {
-    setTaskStatus(event.target.value);
+  const handleTaskStatus = (status) => {
+    setTaskStatus(status);
   };
 
   const handleCreateTask = (event) => {
     event.preventDefault();
     createTaskData(taskName, taskDetails, currentUser, taskStatus);
-    console.log(taskDetails, taskName, taskStatus, currentUser);
   };
 
   return (
@@ -45,17 +43,15 @@ export const CreateTask = () => {
           <input
             type="radio"
             name="status"
-            checked={taskStatus === "true"}
-            value="true"
-            onChange={handleTaskStatus}
+            checked={taskStatus === true}
+            onChange={() => handleTaskStatus(true)}
           />
           <label>True</label>
           <input
             type="radio"
             name="status"
-            checked={taskStatus === "false"}
-            value="false"
-            onChange={handleTaskStatus}
+            checked={taskStatus === false}
+            onChange={() => handleTaskStatus(false)}
           />
           <label>False</label>
         </div>

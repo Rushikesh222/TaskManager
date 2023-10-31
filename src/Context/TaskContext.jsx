@@ -2,44 +2,43 @@ import axios from "axios";
 import { useReducer } from "react";
 import { createContext, useContext, useEffect } from "react";
 import { taskReducer } from "../Reducer/TaskReducer";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuthContext } from "./AuthContext";
 export const TaskContext = createContext();
 export const TaskProvider = ({ children }) => {
+  const { currentUser } = useAuthContext();
   const initialState = {
     isTaskLoading: false,
     taskData: [],
-    userData: [],
+    editData: {
+      _id: "",
+      TaskName: "",
+      TaskDetails: "",
+      UserName: currentUser,
+    },
   };
+  const location = useLocation();
+  const navigate = useNavigate();
   const [taskState, taskDispatch] = useReducer(taskReducer, initialState);
-  const getUsers = async () => {
-    try {
-      const { data, status } = await axios({
-        method: "GET",
-        url: "https://taskmanager.rushikeshshirsa.repl.co/users",
-      });
-      if (status === 200 || status === 201) {
-        console.log(data);
-        taskDispatch({ type: "get_users", payload: data });
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
   const getData = async () => {
     try {
+      taskDispatch({ type: "task-loading", payload: true });
       const { data, status } = await axios({
         method: "GET",
         url: "https://taskmanager.rushikeshshirsa.repl.co/task",
       });
       if (status === 200 || status === 201) {
-        console.log(data);
         taskDispatch({ type: "get_task", payload: data });
+        taskDispatch({ type: "task-loading", payload: false });
       }
     } catch (error) {
       console.error(error);
     }
   };
-  const createTaskData = async (taskname, taskdetails, completed, username) => {
+  const createTaskData = async (taskname, taskdetails, username, completed) => {
     try {
+      taskDispatch({ type: "task-loading", payload: true });
       const { data, status } = await axios({
         method: "POST",
         url: "https://taskmanager.rushikeshshirsa.repl.co/task",
@@ -50,29 +49,30 @@ export const TaskProvider = ({ children }) => {
           Completed: completed,
         },
       });
+
       if (status === 200 || status === 201) {
-        console.log(data);
-        // taskDispatch({ type: "get_task", payload: data });
+        taskDispatch({ type: "get_task", payload: data?.Task });
+        taskDispatch({ type: "task-loading", payload: false });
+        navigate(location?.state?.from?.pathname ?? "/", { replace: true });
       }
     } catch (error) {
       console.error(error);
     }
   };
-  const updateTaskData = async (_id, taskname, taskdetails, completed) => {
+  const updateTaskData = async (_id, editData) => {
     try {
+      taskDispatch({ type: "task-loading", payload: true });
+
       const { data, status } = await axios({
-        method: "GET",
-        url: "https://taskmanager.rushikeshshirsa.repl.co/task",
-        data: {
-          TaskName: taskname,
-          TaskDetails: taskdetails,
-          UserName: username,
-          Completed: completed,
-        },
+        method: "POST",
+        url: `https://taskmanager.rushikeshshirsa.repl.co/task/user/edit/${_id}`,
+        data: editData,
       });
       if (status === 200 || status === 201) {
         console.log(data);
-        // taskDispatch({ type: "get_task", payload: data });
+        taskDispatch({ type: "get_editData", payload: data?.saved });
+        taskDispatch({ type: "get_task", payload: data?.Task });
+        taskDispatch({ type: "task-loading", payload: false });
       }
     } catch (error) {
       console.error(error);
@@ -80,35 +80,24 @@ export const TaskProvider = ({ children }) => {
   };
   const deleteTask = async (_id) => {
     try {
-      const { data, status } = await axios({
-        method: "GET",
-        url: `https://taskmanager.rushikeshshirsa.repl.co/task/${_id}`,
-      });
-      if (status === 200 || status === 201) {
-        console.log(data);
-        // taskDispatch({ type: "get_task", payload: data });
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const deleteUser = async (_id) => {
-    try {
+      taskDispatch({ type: "task-loading", payload: true });
+
       const { data, status } = await axios({
         method: "DELETE",
-        url: `https://taskmanager.rushikeshshirsa.repl.co/user/${_id}`,
+        url: `https://taskmanager.rushikeshshirsa.repl.co/task/user/${_id}`,
       });
       if (status === 200 || status === 201) {
         console.log(data);
-        // taskDispatch({ type: "get_task", payload: data });
+        taskDispatch({ type: "get_task", payload: data?.Task });
+        taskDispatch({ type: "task-loading", payload: false });
       }
     } catch (error) {
       console.error(error);
     }
   };
+
   useEffect(() => {
     getData();
-    getUsers();
   }, []);
   return (
     <TaskContext.Provider
@@ -118,7 +107,6 @@ export const TaskProvider = ({ children }) => {
         createTaskData,
         updateTaskData,
         deleteTask,
-        deleteUser,
       }}
     >
       {children}

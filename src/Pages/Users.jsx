@@ -1,12 +1,12 @@
-import { useTaskData } from "../Context/TaskContext";
+import { useUsers } from "../Context/UserContext";
 
 export const Users = () => {
-  const { taskState, deleteUser } = useTaskData();
+  const { userState, deleteUser } = useUsers();
   return (
     <div>
       <h1>All users</h1>
 
-      {taskState?.userData?.map((list) => {
+      {userState?.userData?.map((list) => {
         const { username, email, _id } = list;
         return (
           <div key={_id}>

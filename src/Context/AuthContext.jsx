@@ -7,11 +7,11 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const localStorageToken = JSON.parse(localStorage.getItem("loginDetials"));
+  const localStorageToken = JSON.parse(localStorage.getItem("loginDetails"));
   const [token, setToken] = useState(localStorageToken?.token);
   const [currentUser, setCurrentUser] = useState(localStorageToken?.username);
   const [currentUserId, setCurrentUserId] = useState(localStorageToken?._id);
-
+  console.log(localStorageToken);
   const signupHandler = async (email, password, username) => {
     try {
       const { data, status } = await axios({
@@ -54,14 +54,18 @@ export const AuthProvider = ({ children }) => {
       });
 
       if (status === 200 || status === 201) {
-        console.log(data);
+        console.log(data.data);
+        setToken(data?.data?.token);
+        setCurrentUser(data?.data?.username);
+        setCurrentUserId(data?.data?._id);
       }
     } catch (error) {
       console.error(error);
     }
   };
-  console.log(currentUserId, token, currentUser);
+
   useEffect(() => {}, [token, currentUser]);
+  console.log(currentUserId, token, currentUser);
 
   return (
     <AuthContext.Provider
