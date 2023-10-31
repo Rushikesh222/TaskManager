@@ -1,8 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { loginService } from "../service/Auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Signup } from "../Pages/signup";
+
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const location = useLocation();
@@ -11,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorageToken?.token);
   const [currentUser, setCurrentUser] = useState(localStorageToken?.username);
   const [currentUserId, setCurrentUserId] = useState(localStorageToken?._id);
-  console.log(localStorageToken);
+
   const signupHandler = async (email, password, username) => {
     try {
       const { data, status } = await axios({
@@ -36,6 +35,9 @@ export const AuthProvider = ({ children }) => {
         setToken(data?.data?.token);
         setCurrentUser(data?.data?.username);
         setCurrentUserId(data?.data?._id);
+        navigate(location?.state?.from?.pathname ?? "/tasks", {
+          replace: true,
+        });
       }
     } catch (error) {
       console.error(error);
@@ -54,24 +56,31 @@ export const AuthProvider = ({ children }) => {
       });
 
       if (status === 200 || status === 201) {
-        console.log(data.data);
         setToken(data?.data?.token);
         setCurrentUser(data?.data?.username);
         setCurrentUserId(data?.data?._id);
+        navigate(location?.state?.from?.pathname ?? "/tasks", {
+          replace: true,
+        });
       }
     } catch (error) {
-      console.error(error);
+      throw error;
     }
+  };
+  const handleUserLogout = () => {
+    localStorage.removeItem("data");
+    setToken(null);
+    setCurrentUser(null);
   };
 
   useEffect(() => {}, [token, currentUser]);
-  console.log(currentUserId, token, currentUser);
 
   return (
     <AuthContext.Provider
       value={{
         signupHandler,
         loginHandler,
+        handleUserLogout,
         token,
         currentUser,
       }}

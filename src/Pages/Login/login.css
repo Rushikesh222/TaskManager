@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Josefin+Sans:ital,wght@0,400;0,700;1,500&family=Lato&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Exo+2:wght@600&family=Josefin+Sans:ital,wght@0,400;0,700;1,500&family=Lato&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Exo+2:wght@600&family=Josefin+Sans:ital,wght@0,400;0,700;1,500&family=Lato&family=Open+Sans:wght@700&display=swap");
+
+.login-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.task-name {
+  font-size: 55px;
+  font-family: "Alfa Slab One", serif;
+  font-weight: 700;
+  font-style: italic;
+  color: rgb(190, 187, 187);
+  text-shadow: 2px 2px black;
+}
+.login-block {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-title {
+  font-size: 40px;
+
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  color: sandybrown;
+  margin: 25px;
+  text-shadow: 2px 2px black;
+}
+.login-from {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login-from label {
+  font-size: 20px;
+  font-family: "Exo 2", sans-serif;
+  margin: 5px;
+}
+.input-login {
+  outline: none;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px rgb(214, 214, 214) solid;
+  display: flex;
+  width: 500px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.login-btn {
+  padding: 10px;
+  background-color: rgb(156, 156, 156);
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  border: 0.125em solid white;
+  margin: auto;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  border-radius: 15px;
+  font-family: "Open Sans", sans-serif;
+  width: 200px;
+}
+.admin-btn {
+  padding: 10px;
+  background-color: rgb(156, 156, 156);
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  border: 0.125em solid white;
+  margin: auto;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  border-radius: 15px;
+  font-family: "Open Sans", sans-serif;
+  width: 250px;
+}
+.login-btn:hover,
+.admin-btn:hover {
+  background-color: white;
+  cursor: pointer;
+  color: rgb(156, 156, 156);
+  border: 0.125em solid rgb(156, 156, 156);
+  margin: auto;
+  text-transform: capitalize;
+}
+.signup-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  margin: 10px;
+  font-size: 20px;
+}
+.signup-link p {
+  margin: 5px;
+  color: aqua;
+}
+.signup-link p:hover {
+  font-size: 30px;
+}

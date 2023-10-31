@@ -1,0 +1,43 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.logout-btn {
+  padding: 10px;
+  background-color: rgb(224, 88, 88);
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  border: 0.125em solid white;
+  text-transform: capitalize;
+  font-size: 1rem;
+  border-radius: 15px;
+  font-family: "Open Sans", sans-serif;
+  width: 150px;
+  margin-right: 30px;
+}
+.logout-btn:hover {
+  background-color: white;
+  cursor: pointer;
+  color: rgb(224, 88, 88);
+  border: 0.125em solid rgb(224, 88, 88);
+  text-transform: capitalize;
+}
+.profile-pic-container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+}
+a {
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+}
+a:hover {
+  color: brown;
+}

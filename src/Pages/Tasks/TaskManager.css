@@ -1,0 +1,178 @@
+.task-manager-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.Task-details-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 20px;
+  border: 1px solid rgb(118, 236, 247);
+  width: 500px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.profile-pic-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.profile-pic-container h3 {
+  color: gray;
+}
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.task-details-info {
+  margin: 10px;
+  gap: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.task-details-info p {
+  margin: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Playpen Sans", cursive;
+}
+.task-status {
+  font-size: 25px;
+  font-family: "Playpen Sans", cursive;
+}
+
+.task-manager-btn {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 15px;
+  gap: 20px;
+  flex-direction: row;
+}
+.delete-task {
+  padding: 10px;
+  background-color: rgb(169, 20, 215);
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  border: 0.125em solid white;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  font-family: "Open Sans", sans-serif;
+  width: 150px;
+}
+.edit-task {
+  padding: 10px;
+  background-color: rgb(169, 20, 215);
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  border: 0.125em solid white;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  font-family: "Open Sans", sans-serif;
+  width: 150px;
+}
+.edit-task:hover,
+.delete-task:hover {
+  background-color: white;
+  cursor: pointer;
+  color: rgb(169, 20, 215);
+  border: 0.125em solid rgb(169, 20, 215);
+  margin: auto;
+  text-transform: capitalize;
+}
+.create-task-btn {
+  padding: 10px;
+  background-color: rgb(215, 150, 20);
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  border: 0.125em solid white;
+  text-transform: capitalize;
+  font-size: 1rem;
+  border-radius: 15px;
+  font-family: "Open Sans", sans-serif;
+  width: 150px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.create-task-btn:hover {
+  background-color: white;
+  cursor: pointer;
+  color: rgb(215, 150, 20);
+  border: 0.125em solid rgb(215, 150, 20);
+  text-transform: capitalize;
+}
+.update-container {
+  flex-direction: column;
+  border: 2px solid gray;
+  border-radius: 25px;
+  gap: 25px;
+  margin: 15px;
+}
+.update-container h2 {
+  font-size: 25px;
+  margin: 10px;
+  font-family: "Playpen Sans", cursive;
+}
+.update-task-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 11px;
+  gap: 15px;
+}
+.update-task-container label {
+  font-size: 25px;
+  margin: 10px;
+  font-family: "Playpen Sans", cursive;
+}
+.input-update {
+  outline: none;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px rgb(214, 214, 214) solid;
+  display: flex;
+  width: 500px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.input-update-checkbox {
+  margin: 5px;
+  width: 30px;
+  height: 20px;
+}
+
+.update-btn:hover {
+  background-color: white;
+  cursor: pointer;
+  color: rgb(172, 172, 173);
+  border: 0.125em solid rgb(172, 172, 173);
+  margin: auto;
+  text-transform: capitalize;
+}
+.update-btn {
+  padding: 10px;
+  background-color: rgb(172, 172, 173);
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  border: 0.125em solid white;
+  text-transform: capitalize;
+  font-size: 1rem;
+  border-radius: 15px;
+  font-family: "Open Sans", sans-serif;
+  width: 150px;
+}

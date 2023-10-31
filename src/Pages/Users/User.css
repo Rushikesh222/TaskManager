@@ -1,0 +1,54 @@
+.user-containers {
+  display: flex;
+  flex-direction: column;
+}
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 20px;
+  border: 1px solid rgb(118, 236, 247);
+  width: 400px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.user-info {
+  margin: 10px;
+  gap: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: "Playpen Sans", cursive;
+}
+.user-btn-block {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 15px;
+  gap: 20px;
+  flex-direction: row;
+}
+.delete-user-btn {
+  padding: 10px;
+  background-color: rgb(232, 39, 39);
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  border: 0.125em solid white;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  font-family: "Open Sans", sans-serif;
+  width: 150px;
+}
+.delete-user-btn:hover {
+  background-color: white;
+  cursor: pointer;
+  color: rgb(232, 39, 39);
+  border: 0.125em solid rgb(232, 39, 39);
+  margin: auto;
+  text-transform: capitalize;
+}

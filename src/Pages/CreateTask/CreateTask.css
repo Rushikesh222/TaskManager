@@ -1,0 +1,48 @@
+.create-task-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.create-task-container {
+  margin-top: 20px;
+  border: 2px solid burlywood;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  border-radius: 30px;
+}
+.create-task-container h1 {
+  font-size: 40px;
+  margin: 10px;
+  color: rgb(217, 73, 73);
+  font-style: italic;
+  text-shadow: 2px 2px orange;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.create-task-form {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.create-task-form label {
+  font-size: 25px;
+  margin: 10px;
+  font-family: "Playpen Sans", cursive;
+}
+.input-task-create {
+  outline: none;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px rgb(214, 214, 214) solid;
+  display: flex;
+  width: 500px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.create-task-btn {
+}

@@ -1,0 +1,71 @@
+.signup-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.signup-title {
+  font-size: 40px;
+  font-family: "Alfa Slab One", serif;
+  /* font-family: "Exo 2", sans-serif; */
+  /* font-family: "Josefin Sans", sans-serif; */
+  /* font-family: "Lato", sans-serif; */
+  font-weight: 500;
+  font-style: italic;
+  color: rgb(247, 64, 64);
+  margin-bottom: 45px;
+  margin-top: 15px;
+  text-shadow: 4px 4px rgb(213, 147, 251);
+}
+
+.signup-block {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.signup-form label {
+  font-size: 20px;
+  font-family: "Exo 2", sans-serif;
+  margin: 5px;
+}
+.input-signup {
+  outline: none;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px rgb(214, 214, 214) solid;
+  display: flex;
+  width: 500px;
+  padding: 10px 0;
+  font-size: 18px;
+}
+.signup-btn {
+  padding: 10px;
+  background-color: rgb(156, 156, 156);
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffff;
+  border: 0.125em solid white;
+  margin: auto;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  border-radius: 15px;
+  font-family: "Open Sans", sans-serif;
+  width: 200px;
+}
+.signup-btn:hover {
+  background-color: white;
+  cursor: pointer;
+  color: rgb(156, 156, 156);
+  border: 0.125em solid rgb(156, 156, 156);
+  margin: auto;
+  text-transform: capitalize;
+}
