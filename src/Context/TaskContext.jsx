@@ -53,7 +53,9 @@ export const TaskProvider = ({ children }) => {
       if (status === 200 || status === 201) {
         taskDispatch({ type: "get_task", payload: data?.Task });
         taskDispatch({ type: "task-loading", payload: false });
-        navigate(location?.state?.from?.pathname ?? "/", { replace: true });
+        navigate(location?.state?.from?.pathname ?? "/tasks", {
+          replace: true,
+        });
       }
     } catch (error) {
       console.error(error);
