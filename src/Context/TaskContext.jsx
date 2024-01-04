@@ -26,7 +26,7 @@ export const TaskProvider = ({ children }) => {
       taskDispatch({ type: "task-loading", payload: true });
       const { data, status } = await axios({
         method: "GET",
-        url: "https://taskmanager.rushikeshshirsa.repl.co/task",
+        url: "https://d720b64c-2d51-4584-ac13-936d92774432-00-2iw8z2adsbthv.sisko.replit.dev/task/taskList",
       });
       if (status === 200 || status === 201) {
         taskDispatch({ type: "get_task", payload: data });
@@ -41,7 +41,7 @@ export const TaskProvider = ({ children }) => {
       taskDispatch({ type: "task-loading", payload: true });
       const { data, status } = await axios({
         method: "POST",
-        url: "https://taskmanager.rushikeshshirsa.repl.co/task",
+        url: "https://d720b64c-2d51-4584-ac13-936d92774432-00-2iw8z2adsbthv.sisko.replit.dev/task/taskList",
         data: {
           TaskName: taskname,
           TaskDetails: taskdetails,
@@ -67,7 +67,7 @@ export const TaskProvider = ({ children }) => {
 
       const { data, status } = await axios({
         method: "POST",
-        url: `https://taskmanager.rushikeshshirsa.repl.co/task/user/edit/${_id}`,
+        url: `https://d720b64c-2d51-4584-ac13-936d92774432-00-2iw8z2adsbthv.sisko.replit.dev/task/taskList/user/edit/${_id}`,
         data: editData,
       });
       if (status === 200 || status === 201) {
@@ -86,7 +86,7 @@ export const TaskProvider = ({ children }) => {
 
       const { data, status } = await axios({
         method: "DELETE",
-        url: `https://taskmanager.rushikeshshirsa.repl.co/task/user/${_id}`,
+        url: `https://d720b64c-2d51-4584-ac13-936d92774432-00-2iw8z2adsbthv.sisko.replit.dev/task/taskList/user/${_id}`,
       });
       if (status === 200 || status === 201) {
         console.log(data);

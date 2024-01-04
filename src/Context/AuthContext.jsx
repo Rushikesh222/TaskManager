@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data, status } = await axios({
         method: "POST",
-        url: `https://taskmanager.rushikeshshirsa.repl.co/signup`,
+        url: `https://d720b64c-2d51-4584-ac13-936d92774432-00-2iw8z2adsbthv.sisko.replit.dev/auth/signup`,
         data: {
           email: email,
           password: password,
@@ -24,17 +24,17 @@ export const AuthProvider = ({ children }) => {
       });
 
       if (status === 200 || status === 201) {
+        console.log(data);
         localStorage.setItem(
           "loginDetails",
           JSON.stringify({
-            username: data?.data?.username,
-            token: data?.data?.token,
-            _id: data?.data?._id,
+            username: data?.user?.username,
+            token: data?.authToken,
+            _id: data?.user?._id,
           })
         );
-        setToken(data?.data?.token);
-        setCurrentUser(data?.data?.username);
-        setCurrentUserId(data?.data?._id);
+        setToken(data?.user?.authToken);
+        setCurrentUser(data?.user?.username);
         navigate(location?.state?.from?.pathname ?? "/tasks", {
           replace: true,
         });
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data, status } = await axios({
         method: "POST",
-        url: `https://taskmanager.rushikeshshirsa.repl.co/login`,
+        url: `https://d720b64c-2d51-4584-ac13-936d92774432-00-2iw8z2adsbthv.sisko.replit.dev/auth/login`,
         headers: { authorization: token },
         data: {
           email: email,
@@ -56,9 +56,17 @@ export const AuthProvider = ({ children }) => {
       });
 
       if (status === 200 || status === 201) {
-        setToken(data?.data?.token);
-        setCurrentUser(data?.data?.username);
-        setCurrentUserId(data?.data?._id);
+        localStorage.setItem(
+          "loginDetails",
+          JSON.stringify({
+            username: data?.user?.username,
+            token: data?.authToken,
+            _id: data?.user?._id,
+          })
+        );
+        setCurrentUser(data?.user?.username);
+        setCurrentUserId(data?.user?._id);
+        setToken(data?.user?.authToken);
         navigate(location?.state?.from?.pathname ?? "/tasks", {
           replace: true,
         });
@@ -73,8 +81,6 @@ export const AuthProvider = ({ children }) => {
     setCurrentUser(null);
   };
 
-  useEffect(() => {}, [token, currentUser]);
-
   return (
     <AuthContext.Provider
       value={{
@@ -83,6 +89,7 @@ export const AuthProvider = ({ children }) => {
         handleUserLogout,
         token,
         currentUser,
+        currentUserId,
       }}
     >
       {children}

@@ -85,6 +85,7 @@ export const TaskManager = () => {
       </button>
       {taskState?.taskData?.map((items) => {
         const { TaskName, TaskDetails, UserName, Completed, _id } = items;
+        console.log(UserName);
         return (
           <div className="Task-details-block" key={_id}>
             <div className="profile-pic-container">
@@ -112,10 +113,7 @@ export const TaskManager = () => {
 
               <div
                 style={{
-                  display:
-                    UserName === currentUser || UserName === "Rushikesh"
-                      ? "flex"
-                      : "none",
+                  display: currentUser === "Rush" ? "flex" : "none",
                 }}
                 className="task-manager-btn"
               >

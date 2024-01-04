@@ -57,7 +57,7 @@ export const Login = () => {
             className="admin-btn"
             onClick={(event) => {
               event.preventDefault();
-              loginHandler("Rushikesh@gmail.com", "Rushikesh@123");
+              loginHandler("rushikesh@gmail.com", "Rush123");
             }}
           >
             Admin Login

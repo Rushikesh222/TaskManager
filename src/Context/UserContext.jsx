@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
       userDispatch({ type: "user-loading", payload: true });
       const { data, status } = await axios({
         method: "GET",
-        url: "https://taskmanager.rushikeshshirsa.repl.co/users",
+        url: "https://d720b64c-2d51-4584-ac13-936d92774432-00-2iw8z2adsbthv.sisko.replit.dev/users",
       });
       if (status === 200 || status === 201) {
         console.log(data);
@@ -33,7 +33,7 @@ export const UserProvider = ({ children }) => {
       userDispatch({ type: "user-loading", payload: true });
       const { data, status } = await axios({
         method: "DELETE",
-        url: `https://taskmanager.rushikeshshirsa.repl.co/user/${_id}`,
+        url: `https://d720b64c-2d51-4584-ac13-936d92774432-00-2iw8z2adsbthv.sisko.replit.dev/user/${_id}`,
       });
       if (status === 200 || status === 201) {
         console.log(data);
