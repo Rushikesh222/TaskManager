@@ -113,7 +113,7 @@ export const TaskManager = () => {
 
               <div
                 style={{
-                  display: currentUser === "Rush" ? "flex" : "none",
+                  display: currentUser === "Rush" || UserName===currentUser? "flex" : "none",
                 }}
                 className="task-manager-btn"
               >
